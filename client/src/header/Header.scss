@@ -1,0 +1,74 @@
+@import "../App";
+
+header {
+  height: 80px;
+  width: 100%;
+  background: $orange;
+  display: flex;
+  justify-content: space-around;
+}
+
+.logo {
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo > img {
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+}
+
+.navContainer {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  color: $white;
+}
+
+.navContainer > nav {
+  display: flex;
+  align-items: center;
+}
+
+.navPages {
+  width: 85%;
+}
+
+.navPages > div {
+  margin-left: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.navPages > div::after {
+  content: '';
+  border-bottom: 2px solid $white;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 1;
+  transition: .2s linear;
+}
+
+.navPages > div:hover::after {
+  visibility: visible;
+  opacity: 0.7;
+  width: 100%;
+}
+
+.navUser {
+  width: 15%;
+  justify-content: end;
+}
+
+.navUser > * {
+  font-size: 18px;
+  margin-right: 20px;
+  cursor: pointer;
+}
