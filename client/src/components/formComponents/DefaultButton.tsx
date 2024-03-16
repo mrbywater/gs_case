@@ -3,19 +3,13 @@ import './DefaultButton.scss'
 const DefaultButton = (props : any) => {
 
     const {
-        buttonWidth,
-        buttonHeight,
+        buttonStyle,
         text,
         onClickFunc
     } = props
 
-    const defaultButton = {
-        width: `${buttonWidth}px`,
-        height: `${buttonHeight}px`
-    }
-
     return (
-        <button style={defaultButton} onClick={onClickFunc}>
+        <button style={buttonStyle} onClick={onClickFunc}>
             {text}
         </button>
     )

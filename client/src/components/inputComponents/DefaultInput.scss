@@ -1,0 +1,38 @@
+@import "../../App";
+
+.inputMainContainer {
+  position: relative;
+  max-width: 100%;
+}
+
+.inputElem {
+  height: 40px;
+  width: 100%;
+  border-radius: 6px;
+  background-color: $white;
+  border: 1.2px solid $gray;
+  padding: 0 30px 0 12px;
+  font-size: 15px;
+  line-height: 20px;
+  box-sizing: border-box;
+  color: $black;
+
+}
+
+.inputElem::placeholder {
+  color: $gray;
+}
+
+input:focus-visible {
+  outline: none;
+  border: 1.5px solid $blue;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 10px;
+  cursor: pointer;
+  color: $gray;
+}
