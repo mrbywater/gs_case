@@ -6,7 +6,7 @@ header {
   background: $light-gray;
   display: flex;
   justify-content: space-around;
-  color: $blue;
+  color: $primary;
 }
 
 header > * {
@@ -31,6 +31,7 @@ header > * {
 
 .logo > svg {
   font-size: 30px;
+  cursor: pointer;
 }
 
 .search {

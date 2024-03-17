@@ -1,8 +1,16 @@
 import './Header.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBars, faCartShopping, faMagnifyingGlass, faSun, faUser} from "@fortawesome/free-solid-svg-icons";
+import {
+    faBarsStaggered,
+    faBookOpen,
+    faCartShopping,
+    faMagnifyingGlass,
+    faSun,
+    faUser
+} from "@fortawesome/free-solid-svg-icons";
 import {DefaultInput} from "../components/inputComponents/DefaultInput";
 import {useState} from "react";
+import {DefaultButton} from "../components/formComponents/DefaultButton";
 
 const searchInputStyle = {
     width: '400px',
@@ -15,10 +23,15 @@ const Header = () => {
     return (
         <header>
             <div className='logo'>
-                <FontAwesomeIcon icon={faBars} />
+                <FontAwesomeIcon icon={faBarsStaggered} />
                 <img src={require('../media/GS_logo512.png')} alt=""/>
             </div>
             <div className='search'>
+                <DefaultButton
+                    text='Catalog'
+                    icon={faBookOpen}
+                    buttonStyle={{marginRight: '20px'}}
+                />
                 <DefaultInput
                     placeholder='Search'
                     inputStyle={searchInputStyle}
