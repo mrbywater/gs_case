@@ -17,14 +17,16 @@ const DefaultInput = (props : any) => {
     }
 
     return (
-        <div className='inputMainContainer'>
+        <div
+            className='inputMainContainer'
+            style={inputStyle}
+        >
             <FontAwesomeIcon
                 className='icon'
                 icon={icon}
             />
             <input
                 className='inputElem'
-                style={inputStyle}
                 placeholder={placeholder}
                 type={inputType}
                 value={value}

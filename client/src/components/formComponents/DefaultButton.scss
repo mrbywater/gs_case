@@ -10,17 +10,17 @@
   font-size: 12px;
   letter-spacing: 1px;
   color: $white;
-  background-color: $gray;
+  background-color: $primary;
   border: none;
   outline: none;
   overflow: hidden;
   cursor: pointer;
   transition: all .4s ease-out;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
 .btn-hover:hover {
-  background-color: $primary;
+  background-color: #77a6f7;
 }
 
 .btn-hover::before {
@@ -44,4 +44,5 @@
 
 .buttonIcon {
   margin-right: 5px;
+  font-size: 16px;
 }

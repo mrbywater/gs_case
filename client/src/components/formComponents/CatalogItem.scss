@@ -1,0 +1,71 @@
+@import "../../App";
+
+.itemMainContainer {
+  height: 400px;
+  width: 250px;
+  border-radius: 10px;
+  border: 2px solid $black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 4px $black;
+}
+
+.itemMainContainer > div {
+  box-sizing: border-box;
+}
+
+.imageContainer {
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.imageContainer > img {
+  width: 90%;
+  height: 90%;
+  border-radius: 10px;
+}
+
+.descriptionContainer {
+  width: 90%;
+  height: 40%;
+}
+
+.title {
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title > span {
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //text-align: center;
+}
+
+.priceContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40%;
+  border-top: 2px solid black;
+  margin-top: 15px;
+}
+
+.price {
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.price > svg {
+  color: $green;
+}

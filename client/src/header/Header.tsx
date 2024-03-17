@@ -2,8 +2,8 @@ import './Header.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faBarsStaggered,
-    faBookOpen,
     faCartShopping,
+    faGrip,
     faMagnifyingGlass,
     faSun,
     faUser
@@ -13,7 +13,9 @@ import {useState} from "react";
 import {DefaultButton} from "../components/formComponents/DefaultButton";
 
 const searchInputStyle = {
-    width: '400px',
+    width: '45%',
+    maxWidth: '800px',
+    borderRadius: '10px'
 }
 
 const Header = () => {
@@ -29,7 +31,7 @@ const Header = () => {
             <div className='search'>
                 <DefaultButton
                     text='Catalog'
-                    icon={faBookOpen}
+                    icon={faGrip}
                     buttonStyle={{marginRight: '20px'}}
                 />
                 <DefaultInput
@@ -42,10 +44,10 @@ const Header = () => {
                 />
             </div>
             <nav>
-                <FontAwesomeIcon icon={faUser} />
-                <FontAwesomeIcon icon={faCartShopping} />
                 <FontAwesomeIcon icon={faSun} />
                 <div>ENG</div>
+                <FontAwesomeIcon icon={faUser} />
+                <FontAwesomeIcon icon={faCartShopping} />
             </nav>
         </header>
     )
