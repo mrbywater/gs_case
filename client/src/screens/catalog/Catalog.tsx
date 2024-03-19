@@ -2,7 +2,8 @@ import './Catalog.scss'
 import {CatalogItem} from "../../components/formComponents/CatalogItem";
 import {faCaretDown, faRightLeft} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import {FilterComponent} from "../../components/formComponents/FilterComponent";
 
 const test = [
     {
@@ -36,15 +37,30 @@ const test = [
 ]
 
 const test2 = [
-    'wegwegew',
+    'weg we gew',
     'gew32t343y',
-    'hwhewhw',
-    'wegwefewgew',
-    'gew32t3wg43y',
+    'hwhe whw',
+    'wegw efew gew',
+    'ge w32t 3wg43y',
     'hw ew h2 ew35'
 ]
 
+const test4 = [
+    'wegw gweg ew',
+    'gewgew 32t 343y',
+    'hw hvd sewhw',
+    'weg whre efewg ew',
+    'gew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y',
+    'hw ewrere h2 ew35',
+    'we gwhre efe ewgew',
+    'gew 32bf et3 wg43y',
+    'hw ewre rse h2 ew35'
+]
+
+
 const Catalog = () => {
+
+    const dropDownRef: any = useRef()
 
     const [sortButtonValue, setSortButtonValue] = useState('By popularity')
     const [sortButtonChecker, setSortButtonChecker] = useState(false)
@@ -56,7 +72,18 @@ const Catalog = () => {
         setSortButtonChecker(false)
     }
 
-    //dropDown Select!!!!
+    useEffect(()=> {
+        const handleClickOutside = (event : MouseEvent): void => {
+            if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
+                setSortButtonChecker(false)
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+
+        return () => document.removeEventListener('click', handleClickOutside)
+
+    }, [])
 
     return (
         <div className='catalogMainContainer'>
@@ -64,6 +91,14 @@ const Catalog = () => {
                 <span>Cases for phones</span>
                 <div className='catalogBodyContainer'>
                     <div className='filterContainer'>
+                        <FilterComponent
+                            arr={test4}
+                            title={'Test4'}
+                        />
+                        <FilterComponent
+                            arr={test2}
+                            title={'Test2'}
+                        />
 
                     </div>
                     <div className='itemsMainContainer'>
@@ -75,6 +110,7 @@ const Catalog = () => {
                                 <div
                                     className='sortButton'
                                     onClick={sortButtonHandler}
+                                    ref={dropDownRef}
                                 >
                                     <div>
                                         <FontAwesomeIcon icon={faRightLeft} />
