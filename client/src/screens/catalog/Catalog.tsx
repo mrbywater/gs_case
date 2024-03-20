@@ -52,9 +52,7 @@ const test4 = [
     'weg whre efewg ew',
     'gew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y',
     'hw ewrere h2 ew35',
-    'we gwhre efe ewgew',
-    'gew 32bf et3 wg43y',
-    'hw ewre rse h2 ew35'
+    'we gwhre efe ewgew'
 ]
 
 

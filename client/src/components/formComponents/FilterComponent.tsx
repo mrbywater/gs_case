@@ -2,6 +2,8 @@ import './FilterComponent.scss'
 import {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
+import SlideDown from "react-slidedown/lib/slidedown";
+import 'react-slidedown/lib/slidedown.css'
 
 const FilterComponent = (props : any) => {
 
@@ -12,7 +14,6 @@ const FilterComponent = (props : any) => {
 
     const [showAll, setShowAll] = useState(false)
     const [showCategory, setShowCategory] = useState(true)
-
     const showAllHandler = () => setShowAll(!showAll)
     const showCategoryHandler = () => setShowCategory(!showCategory)
 
@@ -28,7 +29,10 @@ const FilterComponent = (props : any) => {
                     style={showCategory ? {transform: 'rotate(180deg)'} : {}}
                 />
             </div>
-            <div className={showCategory ? 'showCategory' : 'hideCategory'}>
+            <SlideDown
+                className={'my-dropdown-slidedown'}
+                closed={!showCategory}
+            >
                 {arr.slice(showAll ? 0 : 0,showAll ? arr.length : 5).map((category : string) => (
                     <div
                         className="checkbox-wrapper-46"
@@ -62,7 +66,7 @@ const FilterComponent = (props : any) => {
                         style={showAll ? {transform: 'rotate(180deg)'} : {}}
                     />
                 </div>
-            </div>
+            </SlideDown>
         </div>
     )
 }
