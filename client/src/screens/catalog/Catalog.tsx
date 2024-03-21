@@ -4,6 +4,7 @@ import {faCaretDown, faRightLeft} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useEffect, useRef, useState} from "react";
 import {FilterComponent} from "../../components/formComponents/FilterComponent";
+import SlideDown from "react-slidedown/lib/slidedown";
 
 const test = [
     {
@@ -46,13 +47,52 @@ const test2 = [
 ]
 
 const test4 = [
-    'wegw gweg ew',
-    'gewgew 32t 343y',
-    'hw hvd sewhw',
-    'weg whre efewg ew',
-    'gew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y',
-    'hw ewrere h2 ew35',
-    'we gwhre efe ewgew'
+    {
+        title: '1',
+        data: [
+            'wegw gweg ew',
+            'gewgew 32t 343y',
+            'hw hvd sewhw',
+            'weg whre efewg ew',
+            'gew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y ew3 2be t3w g43y',
+            'hw ewrere h2 ew35',
+            'we gwhre efe ewgew'
+        ]
+    },
+    {
+        title: '2',
+        data: [
+            'weg we gew',
+            'gew32t343y',
+            'hwhe whw',
+            'wegw efew gew',
+            'ge w32t 3wg43y',
+            'hw ew h2 ew35'
+        ]
+    },
+    {
+        title: '3',
+        data: [
+            'rber',
+            'hjybn,',
+            'wee'
+        ]
+    },
+    {
+        title: '4',
+        data: [
+            'rbe4r',
+            'hjy6bn,',
+            'wee5t',
+            'rbngner',
+            'hrngfejybn,',
+            'wtugee',
+            'rrehber',
+            'hjweybn,',
+            'wedbe'
+        ]
+    }
+
 ]
 
 
@@ -89,15 +129,14 @@ const Catalog = () => {
                 <span>Cases for phones</span>
                 <div className='catalogBodyContainer'>
                     <div className='filterContainer'>
-                        <FilterComponent
-                            arr={test4}
-                            title={'Test4'}
-                        />
-                        <FilterComponent
-                            arr={test2}
-                            title={'Test2'}
-                        />
-
+                        {test4.map((filter)=> (
+                            <div key={filter.title}>
+                                <FilterComponent
+                                    arr={filter.data}
+                                    title={filter.title}
+                                />
+                            </div>
+                        ))}
                     </div>
                     <div className='itemsMainContainer'>
                         <div className='sortContainer'>
@@ -119,9 +158,9 @@ const Catalog = () => {
                                         style={sortButtonChecker ? {transform: 'rotate(180deg)'} : {transform: 'rotate(0deg)'}}
                                     />
                                 </div>
-                                <div
+                                <SlideDown
                                     className='sortButtonDropMenu'
-                                    style={sortButtonChecker ? {display: 'flex'} : {display: 'none'}}
+                                    closed={!sortButtonChecker}
                                 >
                                     {test2.map((sort) => (
                                         <div
@@ -131,7 +170,7 @@ const Catalog = () => {
                                             {sort}
                                         </div>
                                     ))}
-                                </div>
+                                </SlideDown>
                             </div>
                         </div>
                         <div className='itemsContainer'>
