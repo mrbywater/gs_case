@@ -1,10 +1,12 @@
 import './Catalog.scss'
 import {CatalogItem} from "../../components/formComponents/CatalogItem";
-import {faCaretDown, faRightLeft} from "@fortawesome/free-solid-svg-icons";
+import {faCaretDown, faRightLeft, faXmark} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useEffect, useRef, useState} from "react";
 import {FilterComponent} from "../../components/formComponents/FilterComponent";
 import SlideDown from "react-slidedown/lib/slidedown";
+import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
+import {cleanFilter, removeFilter} from "../../redux/filters";
 
 const test = [
     {
@@ -100,6 +102,9 @@ const Catalog = () => {
 
     const dropDownRef: any = useRef()
 
+    const dispatch = useAppDispatch()
+    const filters = useAppSelector(state => state.filters.list);
+
     const [sortButtonValue, setSortButtonValue] = useState('By popularity')
     const [sortButtonChecker, setSortButtonChecker] = useState(false)
 
@@ -123,6 +128,9 @@ const Catalog = () => {
 
     }, [])
 
+    const deleteActiveFilter = (name : string) => () => dispatch(removeFilter(name))
+    const deleteAllFilters = () => dispatch(cleanFilter())
+
     return (
         <div className='catalogMainContainer'>
             <div>
@@ -140,8 +148,26 @@ const Catalog = () => {
                     </div>
                     <div className='itemsMainContainer'>
                         <div className='sortContainer'>
-                            <div className='activeFilters'>
-
+                            <div className='activeFiltersContainer'>
+                                {!!filters.length && (
+                                    <div
+                                        className='activeFilterBlock'
+                                        onClick={deleteAllFilters}
+                                    >
+                                        <span>Clean filters</span>
+                                        <FontAwesomeIcon icon={faXmark}/>
+                                    </div>
+                                )}
+                                {filters?.map((filter) => (
+                                    <div
+                                        key={filter}
+                                        className='activeFilterBlock'
+                                        onClick={deleteActiveFilter(filter)}
+                                    >
+                                        <span>{filter}</span>
+                                        <FontAwesomeIcon icon={faXmark}/>
+                                    </div>
+                                ))}
                             </div>
                             <div className='sortButtonContainer'>
                                 <div

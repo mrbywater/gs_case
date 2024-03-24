@@ -1,9 +1,16 @@
 import './FilterComponent.scss'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronDown} from "@fortawesome/free-solid-svg-icons";
 import SlideDown from "react-slidedown/lib/slidedown";
 import 'react-slidedown/lib/slidedown.css'
+import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
+import {addFilter, removeFilter} from "../../redux/filters";
+
+type Filter = {
+    name: string,
+    check: boolean
+}
 
 const FilterComponent = (props : any) => {
 
@@ -12,12 +19,64 @@ const FilterComponent = (props : any) => {
         title
     } = props
 
-    const [showAll, setShowAll] = useState(false)
-    const [showCategory, setShowCategory] = useState(true)
+    const dispatch = useAppDispatch()
+    const filters = useAppSelector(state => state.filters.list);
+
+    const [arrCheck, setArrCheck] = useState(
+        arr.map((filter: string) : Filter => {
+        return {
+            name: filter,
+            check: false
+        }
+    }))
+    const [showAll, setShowAll] = useState<boolean>(false)
+    const [showCategory, setShowCategory] = useState<boolean>(true)
     const showAllHandler = () => setShowAll(!showAll)
     const showCategoryHandler = () => setShowCategory(!showCategory)
 
-    return arr && (
+    const filterCheckHandler =  (filter : string, index: number) => ()=> {
+
+        const newArrCheck : Filter[] = [...arrCheck];
+
+        if (!filters.includes(filter)) {
+            newArrCheck[index].check = !newArrCheck[index].check
+            setArrCheck(newArrCheck)
+            dispatch(addFilter(arrCheck[index].name))
+        } else {
+            newArrCheck[index].check = !newArrCheck[index].check
+            setArrCheck(newArrCheck)
+            dispatch(removeFilter(arrCheck[index].name))
+        }
+    }
+
+    useEffect(() => {
+
+        const newArrCheck : Filter[] = [...arrCheck];
+
+        const deletedFilterIndex = arrCheck.findIndex((item : Filter) => {
+             if (!filters.includes(item?.name) && item.check === true) {
+                 return item
+             }
+        })
+
+        if (deletedFilterIndex !== -1) {
+            arrCheck[deletedFilterIndex].check = !arrCheck[deletedFilterIndex].check
+            setArrCheck(newArrCheck)
+        }
+
+        if (!filters.length) {
+            setArrCheck(
+                arr.map((filter: string) : Filter => {
+                    return {
+                        name: filter,
+                        check: false
+                    }
+            }))
+        }
+
+    }, [filters])
+
+    return arrCheck && (
         <div className='filterItemContainer'>
             <div
                 className='filterTitle'
@@ -33,18 +92,19 @@ const FilterComponent = (props : any) => {
                 className={'my-dropdown-slidedown'}
                 closed={!showCategory}
             >
-                {arr.slice(showAll ? 0 : 0,showAll ? arr.length : 5).map((category : string) => (
+                {arrCheck.slice(showAll ? 0 : 0,showAll ? arr.length : 5).map((category: any, index: number) => (
                     <div
                         className="checkbox-wrapper-46"
-                        key={category}
+                        key={category.name}
+                        onClick={filterCheckHandler(category.name, index)}
                     >
                         <input
                             type="checkbox"
-                            id={"cbx-46" + category}
                             className="inp-cbx"
+                            id={`checkbox${category.name}`}
+                            checked={category.check}
                         />
                         <label
-                            htmlFor={"cbx-46" + category}
                             className="cbx"
                         >
                     <span>
@@ -52,7 +112,7 @@ const FilterComponent = (props : any) => {
                             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                         </svg>
                     </span>
-                            <span>{category}</span>
+                            <span>{category.name}</span>
                         </label>
                     </div>
                 ))}
