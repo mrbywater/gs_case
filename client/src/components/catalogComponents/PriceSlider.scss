@@ -1,0 +1,52 @@
+@import "../../App.scss";
+
+.priceSliderContainer {
+  width: 70%;
+  margin: 0 0 10px 15%;
+}
+
+.MenuItem .MuiSlider-track {
+  color: rgba(0,0,0,0.87);
+  height: 1px;
+}
+
+.MenuItem .MuiSlider-thumb {
+  color: #53900F;
+  width: 10px;
+  height: 10px;
+  transition: 0.3s cubic-bezier(.47,1.64,.41,.8);
+}
+
+.MenuItem .MuiSlider-thumb:hover,
+.MenuItem .MuiSlider-thumb.Mui-focusVisible {
+  box-shadow: 0px 0px 4px 2px red;
+}
+
+.MenuItem .MuiSlider-thumb.Mui-active {
+  width: 15px;
+  height: 15px;
+}
+
+.MenuItem .MuiSlider-rail {
+  color: red;
+  opacity: 0.28;
+}
+
+.priceSliderInputContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+  width: 110%;
+  margin-left: -5%;
+}
+
+.priceSliderInputContainer > input {
+  width: 30%;
+  height: 30px;
+  box-sizing: border-box;
+  background-color: #77a6f7;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+}

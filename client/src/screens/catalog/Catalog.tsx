@@ -1,12 +1,13 @@
 import './Catalog.scss'
-import {CatalogItem} from "../../components/formComponents/CatalogItem";
+import {CatalogItem} from "../../components/catalogComponents/CatalogItem";
 import {faCaretDown, faRightLeft, faXmark} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useEffect, useRef, useState} from "react";
-import {FilterComponent} from "../../components/formComponents/FilterComponent";
+import {FilterComponent} from "../../components/catalogComponents/FilterComponent";
 import SlideDown from "react-slidedown/lib/slidedown";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import {cleanFilter, removeFilter} from "../../redux/filters";
+import {ActiveFilter} from "../../components/catalogComponents/ActiveFilter";
 
 const test = [
     {
@@ -137,6 +138,12 @@ const Catalog = () => {
                 <span>Cases for phones</span>
                 <div className='catalogBodyContainer'>
                     <div className='filterContainer'>
+                        <div className='filterItemContainer'>
+                            <FilterComponent
+                                title='Price'
+                                arr={[]}
+                            />
+                        </div>
                         {test4.map((filter)=> (
                             <div key={filter.title}>
                                 <FilterComponent
@@ -150,22 +157,19 @@ const Catalog = () => {
                         <div className='sortContainer'>
                             <div className='activeFiltersContainer'>
                                 {!!filters.length && (
-                                    <div
-                                        className='activeFilterBlock'
-                                        onClick={deleteAllFilters}
-                                    >
-                                        <span>Clean filters</span>
-                                        <FontAwesomeIcon icon={faXmark}/>
+                                    <div>
+                                        <ActiveFilter
+                                            title='Clean filters'
+                                            buttonHandler={deleteAllFilters}
+                                        />
                                     </div>
                                 )}
                                 {filters?.map((filter) => (
-                                    <div
-                                        key={filter}
-                                        className='activeFilterBlock'
-                                        onClick={deleteActiveFilter(filter)}
-                                    >
-                                        <span>{filter}</span>
-                                        <FontAwesomeIcon icon={faXmark}/>
+                                    <div key={filter}>
+                                        <ActiveFilter
+                                            title={filter}
+                                            buttonHandler={deleteActiveFilter(filter)}
+                                        />
                                     </div>
                                 ))}
                             </div>

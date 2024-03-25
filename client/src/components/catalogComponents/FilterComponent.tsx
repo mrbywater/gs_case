@@ -6,6 +6,7 @@ import SlideDown from "react-slidedown/lib/slidedown";
 import 'react-slidedown/lib/slidedown.css'
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import {addFilter, removeFilter} from "../../redux/filters";
+import {PriceSlider} from "./PriceSlider";
 
 type Filter = {
     name: string,
@@ -22,13 +23,14 @@ const FilterComponent = (props : any) => {
     const dispatch = useAppDispatch()
     const filters = useAppSelector(state => state.filters.list);
 
-    const [arrCheck, setArrCheck] = useState(
-        arr.map((filter: string) : Filter => {
+    const createArrCheck = arr.map((filter: string) : Filter => {
         return {
             name: filter,
             check: false
         }
-    }))
+    })
+
+    const [arrCheck, setArrCheck] = useState<Filter[]>(createArrCheck)
     const [showAll, setShowAll] = useState<boolean>(false)
     const [showCategory, setShowCategory] = useState<boolean>(true)
     const showAllHandler = () => setShowAll(!showAll)
@@ -92,30 +94,36 @@ const FilterComponent = (props : any) => {
                 className={'my-dropdown-slidedown'}
                 closed={!showCategory}
             >
-                {arrCheck.slice(showAll ? 0 : 0,showAll ? arr.length : 5).map((category: any, index: number) => (
-                    <div
-                        className="checkbox-wrapper-46"
-                        key={category.name}
-                        onClick={filterCheckHandler(category.name, index)}
-                    >
-                        <input
-                            type="checkbox"
-                            className="inp-cbx"
-                            id={`checkbox${category.name}`}
-                            checked={category.check}
-                        />
-                        <label
-                            className="cbx"
-                        >
-                    <span>
-                        <svg viewBox="0 0 12 10" height="10px" width="12px">
-                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                        </svg>
-                    </span>
-                            <span>{category.name}</span>
-                        </label>
+                {arrCheck.length === 0 ? (
+                    <div>
+                        <PriceSlider/>
                     </div>
-                ))}
+                ) : (
+                    arrCheck.slice(showAll ? 0 : 0, showAll ? arr.length : 5).map((category: any, index: number) => (
+                        <div
+                            className="checkbox-wrapper-46"
+                            key={category.name}
+                            onClick={filterCheckHandler(category.name, index)}
+                        >
+                            <input
+                                type="checkbox"
+                                className="inp-cbx"
+                                id={`checkbox${category.name}`}
+                                checked={category.check}
+                            />
+                            <label
+                                className="cbx"
+                            >
+                        <span>
+                            <svg viewBox="0 0 12 10" height="10px" width="12px">
+                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                            </svg>
+                        </span>
+                                <span>{category.name}</span>
+                            </label>
+                        </div>
+                    ))
+                )}
                 <div
                     className={arr.length > 5 ? 'showMore' : 'disable'}
                     onClick={showAllHandler}

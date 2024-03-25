@@ -1,5 +1,5 @@
 import './CatalogItem.scss'
-import {DefaultButton} from "./DefaultButton";
+import {DefaultButton} from "../formComponents/DefaultButton";
 import {faCartShopping, faGuaraniSign} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
