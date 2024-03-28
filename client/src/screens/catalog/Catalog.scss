@@ -20,13 +20,16 @@
 .catalogBodyContainer {
   display: flex;
   margin-top: 20px;
-  background-color: #C5CBE3;
 }
 
 .filterContainer {
-  background-color: #FBE8A6;
   width: 15%;
+  height: max-content;
   min-width: 205px;
+  padding: 10px;
+  background-color: $light-gray;
+  border-radius: 10px;
+  margin-top: 5px;
 }
 
 .itemsMainContainer {
@@ -36,34 +39,30 @@
 }
 
 .sortContainer {
-  min-height: 50px;
+  min-height: 45px;
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .activeFiltersContainer {
-  background-color: green;
   width: 75%;
   display: flex;
   flex-wrap: wrap;
 }
 
 .sortButtonContainer {
-  background-color: #FBE8A6;
   width: 25%;
   display: flex;
-  height: 50px;
   justify-content: center;
-  align-items: center;
   position: relative;
+  margin-top: 5px;
 }
 
 .sortButton {
-  background-color: #53900F;
   width: 95%;
-  height: 40px;
+  height: 35px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -71,6 +70,7 @@
   padding: 10px;
   cursor: pointer;
   user-select: none;
+  background-color: $light-gray;
 }
 
 .sortButton > div {
@@ -100,20 +100,21 @@
   display: flex;
   width: 95%;
   border-radius: 10px;
-  background-color: orange;
+  background-color: $light-gray;
   position: absolute;
-  top: 50px;
+  top: 44px;
   flex-direction: column;
   align-items: center;
   z-index: 10;
   user-select: none;
+  box-shadow: 0px 0px 10px 1px $gray;
 }
 
 .sortButtonDropMenu > div {
   box-sizing: border-box;
   width: 100%;
   border-top: 1px solid $black;
-  height: 50px;
+  height: 40px;
   padding-left: 10px;
   display: flex;
   align-items: center;
@@ -131,15 +132,20 @@
 }
 
 .sortButtonDropMenu > div:hover {
-  background-color: #e9e9e9;
+  background-color: $light-blue;
 }
 
 .itemsContainer {
   display: flex;
+  flex-direction: column;
+}
+
+.itemsBlockContainer {
+  display: flex;
   flex-wrap: wrap;
 }
 
-.itemsContainer > div {
+.itemsBlockContainer > div {
   width: 23%;
   margin: 1%;
   display: flex;
@@ -147,6 +153,18 @@
   align-items: center;
 }
 
-.itemsContainer > div > div {
+.itemsBlockContainer > div > div {
   width: 100%;
+}
+
+.paginationContainer {
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationContainer > nav {
+  width: max-content;
 }

@@ -6,20 +6,21 @@
 }
 
 .MenuItem .MuiSlider-track {
-  color: rgba(0,0,0,0.87);
+  color: $primary;
   height: 1px;
 }
 
 .MenuItem .MuiSlider-thumb {
-  color: #53900F;
+  color: $sky-blue;
   width: 10px;
   height: 10px;
   transition: 0.3s cubic-bezier(.47,1.64,.41,.8);
 }
 
 .MenuItem .MuiSlider-thumb:hover,
-.MenuItem .MuiSlider-thumb.Mui-focusVisible {
-  box-shadow: 0px 0px 4px 2px red;
+.MenuItem .MuiSlider-thumb.Mui-focusVisible,
+.MenuItem .MuiSlider-thumb.Mui-active {
+  box-shadow: 0px 0px 4px 2px $primary;
 }
 
 .MenuItem .MuiSlider-thumb.Mui-active {
@@ -28,7 +29,7 @@
 }
 
 .MenuItem .MuiSlider-rail {
-  color: red;
+  color: $sky-blue;
   opacity: 0.28;
 }
 
@@ -45,7 +46,7 @@
   width: 30%;
   height: 30px;
   box-sizing: border-box;
-  background-color: #77a6f7;
+  background-color: $light-blue;
   border: none;
   border-radius: 10px;
   padding: 5px;

@@ -1,7 +1,9 @@
 import './PriceSlider.scss'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Slider} from "@mui/material";
 import {DefaultButton} from "../formComponents/DefaultButton";
+import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
+import {addFilter, rewriteFilter} from "../../redux/filters";
 
 const confirmPrice = {
     height: "30px",
@@ -10,11 +12,13 @@ const confirmPrice = {
 
 const PriceSlider = (props : any) => {
 
+    const dispatch = useAppDispatch()
+    const filters = useAppSelector(state => state.filters.list);
+
     const [value, setValue] = useState<number[]>([0, 1000]);
 
     const handleChange = (event: Event, newValue: number | number[]) => {
         setValue(newValue as number[]);
-        console.log(value)
     };
 
     const inputValueHandler = (id : string) => (event : any) =>  {
@@ -27,6 +31,30 @@ const PriceSlider = (props : any) => {
             }
         }
     }
+
+    const addPriceFilter = () => {
+
+        const newPrice = `Price range ${value[0]}-${value[1]}`
+
+        const priceFilterIndex = filters?.findIndex((item : string) => {
+            if (item.slice(0, 11) === 'Price range') {
+                return item
+            }
+        })
+
+        if (priceFilterIndex !== -1) {
+            dispatch(rewriteFilter({index: priceFilterIndex, title: newPrice}))
+        } else {
+            dispatch(addFilter(newPrice))
+        }
+
+    }
+
+    useEffect(() => {
+        if (!filters.includes(`Price range ${value[0]}-${value[1]}`)) {
+            setValue([0, 1000])
+        }
+    }, [filters])
 
     return (
         <div className='priceSliderContainer'>
@@ -47,6 +75,7 @@ const PriceSlider = (props : any) => {
                 <DefaultButton
                     text={'OK'}
                     buttonStyle={confirmPrice}
+                    onClickFunc={addPriceFilter}
                 />
             </div>
             <Slider

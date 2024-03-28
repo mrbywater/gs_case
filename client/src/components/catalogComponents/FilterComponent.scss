@@ -1,7 +1,7 @@
 @import "../../App";
 
 .filterItemContainer {
-  border-bottom: 1px solid $black;
+  border-bottom: 1px solid $gray;
   display: flex;
   flex-direction: column;
 }
@@ -113,7 +113,6 @@
 
 .showMore > svg {
   margin-left: 6px;
-
 }
 
 .showMore:after {
@@ -126,11 +125,11 @@
 }
 
 .showMore:hover {
-  color: red;
+  color: $sky-blue;
 }
 
 .showMore:hover:after {
-  border-top: 1px dashed red;
+  border-top: 1px dashed $sky-blue;
 }
 
 

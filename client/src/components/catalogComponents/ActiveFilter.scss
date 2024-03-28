@@ -1,17 +1,23 @@
 @import "../../App";
 
 .activeFilterBlock {
-  background-color: #77a6f7;
+  background-color: $light-gray;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 7px;
   margin: 5px;
   cursor: pointer;
+  min-height: 35px;
   height: max-content;
+  transition: .3s;
+}
+
+.activeFilterBlock:hover {
+  background-color: $light-blue;
 }
 
 .activeFiltersContainer svg {

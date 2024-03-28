@@ -22,11 +22,14 @@ const counterSlice = createSlice({
         removeFilter(state, action) {
             state.list = state.list.filter((item)=> item !== action.payload)
         },
+        rewriteFilter(state, action) {
+            state.list.splice(action.payload.index, 1, action.payload.title)
+        },
         cleanFilter(state) {
            state.list.length = 0
         },
     }
 })
 
-export const {addFilter, removeFilter, cleanFilter} = counterSlice.actions;
+export const {addFilter, removeFilter, cleanFilter, rewriteFilter} = counterSlice.actions;
 export default counterSlice.reducer;

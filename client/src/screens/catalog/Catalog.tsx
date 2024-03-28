@@ -8,6 +8,7 @@ import SlideDown from "react-slidedown/lib/slidedown";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import {cleanFilter, removeFilter} from "../../redux/filters";
 import {ActiveFilter} from "../../components/catalogComponents/ActiveFilter";
+import {PaginationCatalog} from "../../components/catalogComponents/Pagination";
 
 const test = [
     {
@@ -36,7 +37,323 @@ const test = [
     },
     {
         price: '32532',
-        title: 'fewgwrgwe'
+        title: 'fewg1wrgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewgbw2gwe'
+    },
+    {
+        price: '32532',
+        title: 'fewg3vswgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewge4wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'few5gwrgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewgb6wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewg7vswgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewge8wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewg9wrgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewg11bwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewgvs22wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewgew33wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewg44wrgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewg55bwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewgv66wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewgw8  ef ef e fe fe fe e fe fe feww w few fwe  few few fwe few few few few f efw gew gew gweg 8rgwe'
+    },
+    {
+        price: '32532',
+        title: 'fewg1v66w1gwe'
+    },
+    {
+        price: '32532',
+        title: 'few2ge77ww2gwe'
+    },
+    {
+        price: '32532',
+        title: 'fe3wgv66w3gwe'
+    },
+    {
+        price: '32532',
+        title: 'few4ge77ww4gwe'
+    },
+    {
+        price: '32532',
+        title: 'fe5wgv66w5gwe'
+    },
+    {
+        price: '32532',
+        title: 'fe6wge77ww6gwe'
+    },
+    {
+        price: '32532',
+        title: 'fe7wgv66w7gwe'
+    },
+    {
+        price: '32532',
+        title: 'few8ge77ww8gwe'
+    },
+    {
+        price: '32532',
+        title: 'few2ge77ww9gwe'
+    },
+    {
+        price: '32532',
+        title: 'fe3wgv66wg0we'
+    },
+    {
+        price: '32532',
+        title: 'few4ge77wwg00we'
+    },
+    {
+        price: '32532',
+        title: 'fe5wgv66wg99we'
+    },
+    {
+        price: '32532',
+        title: 'fe6wge77wwg88we'
+    },
+    {
+        price: '32532',
+        title: 'fe7wgv66wg77we'
+    },
+    {
+        price: '32532',
+        title: 'few8ge77wwg66we'
+    },
+    {
+        price: '32532',
+        title: 'few2ge77wwg55we'
+    },
+    {
+        price: '32532',
+        title: 'fe3wgv66wg44we'
+    },
+    {
+        price: '32532',
+        title: 'few4ge77wwg33we'
+    },
+    {
+        price: '32532',
+        title: 'fe5wgv66wgw22e'
+    },
+    {
+        price: '32532',
+        title: 'fe6wge77wwg212we'
+    },
+    {
+        price: '32532',
+        title: 'fe7wgv66wg111we'
+    },
+    {
+        price: '32532',
+        title: 'few8ge77ww222gwe'
+    },
+    {
+        price: '32532',
+        title: 'few2ge77wwg333we'
+    },
+    {
+        price: '32532',
+        title: 'fe3wgv66wg444we'
+    },
+    {
+        price: '32532',
+        title: 'few4ge77wwg555we'
+    },
+    {
+        price: '32532',
+        title: 'fe5wgv66wg666we'
+    },
+    {
+        price: '32532',
+        title: 'fe6wge77ww777gwe'
+    },
+    {
+        price: '32532',
+        title: 'fe7wgv66wgw888e'
+    },
+    {
+        price: '32532',
+        title: 'few8ge77ww999gwe'
+    },
+    {
+        price: '32532',
+        title: 'few2ge77wwg000we'
+    },
+    {
+        price: '32532',
+        title: 'fe3wgv66wg9999we'
+    },
+    {
+        price: '32532',
+        title: 'few4ge77wwg8888we'
+    },
+    {
+        price: '32532',
+        title: 'fe5wgv66wg7777we'
+    },
+    {
+        price: '32532',
+        title: 'fe6wge77wwg6666we'
+    },
+    {
+        price: '32532',
+        title: 'fe7wgv66w5555gwe'
+    },
+    {
+        price: '32532',
+        title: 'few8ge77ww4444gwe'
+    },
+    {
+        price: '32532',
+        title: 'few2ge77wwgw3333e'
+    },
+    {
+        price: '32532',
+        title: 'fe3wgv66wgw2222e'
+    },
+    {
+        price: '32532',
+        title: 'few4ge77ww111gwe'
+    },
+    {
+        price: '32532',
+        title: 'f1e5wgv66wgwe'
+    },
+    {
+        price: '32532',
+        title: 'f2e6wge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'f3e7wgv66wgwe'
+    },
+    {
+        price: '32532',
+        title: 'f4w8ge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'f45ew2ge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'f5e3wgv66wgwe'
+    },
+    {
+        price: '32532',
+        title: 'f6ew4ge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'f75wgv66wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe86wge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe97wgv66wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe00w8ge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'few7852ge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe3467wwgv66wgwe'
+    },
+    {
+        price: '32532',
+        title: 'feww3454ge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe5wg6432v66wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe6w34562ge77wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe7wgv678946wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe54w8ge228477wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe7446g wgg v678946wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe54w8ww ge8477wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe7wgvreh 678946wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe54w8gre e8477wwgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe7wgfb v678946wgwe'
+    },
+    {
+        price: '32532',
+        title: 'fe5gweg4w8ge8477wwgwe'
     },
 ]
 
@@ -108,6 +425,7 @@ const Catalog = () => {
 
     const [sortButtonValue, setSortButtonValue] = useState('By popularity')
     const [sortButtonChecker, setSortButtonChecker] = useState(false)
+    const [catalogItemsArr, serCatalogItemsArr] = useState(test)
 
     const sortButtonHandler = () => setSortButtonChecker(!sortButtonChecker)
 
@@ -138,7 +456,7 @@ const Catalog = () => {
                 <span>Cases for phones</span>
                 <div className='catalogBodyContainer'>
                     <div className='filterContainer'>
-                        <div className='filterItemContainer'>
+                        <div>
                             <FilterComponent
                                 title='Price'
                                 arr={[]}
@@ -196,6 +514,7 @@ const Catalog = () => {
                                         <div
                                             key={`sort_${sort}`}
                                             onClick={sortChange(sort)}
+                                            style={sortButtonValue === sort ? {color: '#77a6f7'} : {}}
                                         >
                                             {sort}
                                         </div>
@@ -204,14 +523,22 @@ const Catalog = () => {
                             </div>
                         </div>
                         <div className='itemsContainer'>
-                            {test.map((shopItem) => (
-                                <div key={`shopItem_${shopItem.title}`}>
-                                    <CatalogItem
-                                        price={shopItem.price}
-                                        title={shopItem.title}
-                                    />
-                                </div>
-                            ))}
+                            <div className='itemsBlockContainer'>
+                                {catalogItemsArr.map((shopItem) => (
+                                    <div key={`shopItem_${shopItem.title}`}>
+                                        <CatalogItem
+                                            price={shopItem.price}
+                                            title={shopItem.title}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                            <div className='paginationContainer'>
+                                <PaginationCatalog
+                                    itemsArr={test}
+                                    setItemsArr={serCatalogItemsArr}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

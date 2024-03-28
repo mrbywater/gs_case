@@ -16,10 +16,12 @@ const DefaultButton = (props : any) => {
             style={buttonStyle}
             onClick={onClickFunc}
         >
-            <FontAwesomeIcon
-                className='buttonIcon'
-                icon={icon}
-            />
+            {icon &&
+                <FontAwesomeIcon
+                    className='buttonIcon'
+                    icon={icon}
+                />
+            }
             <span>{text}</span>
         </button>
     )
