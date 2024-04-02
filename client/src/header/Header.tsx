@@ -11,6 +11,10 @@ import {
 import {DefaultInput} from "../components/inputComponents/DefaultInput";
 import {useState} from "react";
 import {DefaultButton} from "../components/formComponents/DefaultButton";
+import {SideDrawer} from "../components/drawerComponents/SideDrawer";
+import {DrawerCatalogList} from "../components/drawerComponents/DrawerCatalogList";
+import {DrawerCartShoppingList} from "../components/drawerComponents/DrawerCartShoppingList";
+import {Link} from "react-router-dom";
 
 const searchInputStyle = {
     width: '45%',
@@ -25,15 +29,25 @@ const Header = () => {
     return (
         <header>
             <div className='logo'>
-                <FontAwesomeIcon icon={faBarsStaggered} />
-                <img src={require('../media/GS_logo512.png')} alt=""/>
+                <SideDrawer
+                    anchor={'left'}
+                    icon={faBarsStaggered}
+                    iconStyle={{fontSize: '30px'}}
+                >
+                    <DrawerCatalogList/>
+                </SideDrawer>
+                <Link to={'/'} style={{textDecoration: 'none'}}>
+                    <img src={require('../media/GS_logo512.png')} alt=""/>
+                </Link>
             </div>
             <div className='search'>
-                <DefaultButton
-                    text='Catalog'
-                    icon={faGrip}
-                    buttonStyle={{marginRight: '20px'}}
-                />
+                <Link to={'/catalog'} style={{marginRight: '20px', textDecoration: 'none'}}>
+                    <DefaultButton
+                        text='Catalog'
+                        icon={faGrip}
+                        // buttonStyle={{marginRight: '20px'}}
+                    />
+                </Link>
                 <DefaultInput
                     placeholder='Search'
                     inputStyle={searchInputStyle}
@@ -47,7 +61,12 @@ const Header = () => {
                 <FontAwesomeIcon icon={faSun} />
                 <div>ENG</div>
                 <FontAwesomeIcon icon={faUser} />
-                <FontAwesomeIcon icon={faCartShopping} />
+                <SideDrawer
+                    anchor={'right'}
+                    icon={faCartShopping}
+                >
+                    <DrawerCartShoppingList/>
+                </SideDrawer>
             </nav>
         </header>
     )
