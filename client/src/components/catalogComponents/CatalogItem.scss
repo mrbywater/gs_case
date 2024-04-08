@@ -1,4 +1,4 @@
-@import "../../App";
+@import "../../styles/colors";
 
 .itemMainContainer {
   height: 400px;
@@ -11,51 +11,51 @@
   background-color: $white;
   box-sizing: border-box;
   transition: .3s;
-}
 
-.itemMainContainer:hover {
-  transform: scale(1.03);
-}
+  &:hover {
+    transform: scale(1.03);
+  }
 
-.itemMainContainer > div {
-  box-sizing: border-box;
-}
+  > div {
+    box-sizing: border-box;
+  }
 
-.imageContainer {
-  height: 60%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  width: 100%;
-}
+  .imageContainer {
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    width: 100%;
 
-.imageContainer > img {
-  width: 90%;
-  height: 90%;
-  border-radius: 10px;
+    > img {
+      width: 90%;
+      height: 90%;
+      border-radius: 10px;
+    }
+  }
 }
 
 .descriptionContainer {
   width: 90%;
   height: 40%;
-}
 
-.title {
-  height: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .title {
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-.title > span {
-  font-weight: 500;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 0 5px;
+    > span {
+      font-weight: 500;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 5px;
+    }
+  }
 }
 
 .priceContainer {
@@ -65,14 +65,14 @@
   height: 40%;
   border-top: 2px solid black;
   margin-top: 15px;
-}
 
-.price {
-  font-weight: 500;
-  font-size: 20px;
-}
+  .price {
+    font-weight: 500;
+    font-size: 20px;
 
-.price > svg {
-  color: $green;
-  font-size: 20px;
+    > svg {
+      color: $green;
+      font-size: 20px;
+    }
+  }
 }

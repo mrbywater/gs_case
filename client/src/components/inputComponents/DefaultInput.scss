@@ -1,38 +1,37 @@
-@import "../../App";
+@import "../../styles/colors";
 
 .inputMainContainer {
   position: relative;
   height: 40px;
-}
 
-.inputElem {
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-  background-color: $white;
-  border: 1.2px solid $gray;
-  padding: 0 30px 0 12px;
-  font-size: 15px;
-  line-height: 20px;
-  box-sizing: border-box;
-  color: $black;
+  input {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: $white;
+    border: 1.2px solid $gray;
+    padding: 0 30px 0 12px;
+    font-size: 15px;
+    line-height: 20px;
+    box-sizing: border-box;
+    color: $black;
 
-}
+    &::placeholder {
+      color: $gray;
+    }
 
-.inputElem::placeholder {
-  color: $gray;
-}
+    &:focus-visible {
+      outline: none;
+      border: 1.2px solid $primary;
+    }
+  }
 
-input:focus-visible {
-  outline: none;
-  border: 1.2px solid $primary;
-}
-
-.icon {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  right: 10px;
-  cursor: pointer;
-  color: $gray;
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 10px;
+    cursor: pointer;
+    color: $gray;
+  }
 }

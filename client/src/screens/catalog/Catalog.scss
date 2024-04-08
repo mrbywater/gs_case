@@ -1,25 +1,25 @@
-@import "../../App";
+@import "../../styles/colors";
 
 .catalogMainContainer {
   display: flex;
   justify-content: center;
   margin: 25px 0;
-}
 
-.catalogMainContainer > div {
-  width: 90%;
-  max-width: 1380px;
-  min-height: 500px;
-}
+  > div {
+    width: 90%;
+    max-width: 1380px;
+    min-height: 500px;
 
-.catalogMainContainer > div > span{
-  font-size: 27px;
-  font-weight: 700;
-}
+    > span {
+      font-size: 27px;
+      font-weight: 700;
+    }
 
-.catalogBodyContainer {
-  display: flex;
-  margin-top: 20px;
+    .catalogBodyContainer {
+      display: flex;
+      margin-top: 20px;
+    }
+  }
 }
 
 .filterContainer {
@@ -30,24 +30,28 @@
   background-color: $light-gray;
   border-radius: 10px;
   margin-top: 5px;
+
+  > div:last-child > div {
+    border: none;
+  }
 }
 
 .itemsMainContainer {
   width: 85%;
   display: flex;
   flex-direction: column;
-}
 
-.sortContainer {
-  min-height: 45px;
-  display: flex;
-  margin-bottom: 5px;
-}
+  > div {
+    min-height: 45px;
+    display: flex;
+    margin-bottom: 5px;
 
-.activeFiltersContainer {
-  width: 75%;
-  display: flex;
-  flex-wrap: wrap;
+    .activeFiltersContainer {
+      width: 75%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
 }
 
 .sortButtonContainer {
@@ -56,44 +60,44 @@
   justify-content: center;
   position: relative;
   margin-top: 5px;
-}
 
-.sortButton {
-  width: 95%;
-  height: 35px;
-  border-radius: 10px;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding: 10px;
-  cursor: pointer;
-  user-select: none;
-  background-color: $light-gray;
-}
+  .sortButton {
+    width: 95%;
+    height: 35px;
+    border-radius: 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    background-color: $light-gray;
 
-.sortButton > div {
-  display: flex;
-  align-items: center;
-  width: 90%;
-}
+    > div {
+      display: flex;
+      align-items: center;
+      width: 90%;
 
-.sortButton > div > svg {
-  transform: rotate(90deg);
-  margin-right: 10px;
-}
+      > svg {
+        transform: rotate(90deg);
+        margin-right: 10px;
+      }
 
-.sortButton > div > span {
-  display: -webkit-box;
-  -webkit-line-clamp:1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+      > span {
+        display: -webkit-box;
+        -webkit-line-clamp:1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
 
-.sortButton > svg {
-  transition: .3s;
+    > svg {
+      transition: .3s;
+    }
+  }
 }
 
 .sortButtonDropMenu {
@@ -108,53 +112,53 @@
   z-index: 10;
   user-select: none;
   box-shadow: 0px 0px 10px 1px $gray;
-}
 
-.sortButtonDropMenu > div {
-  box-sizing: border-box;
-  width: 100%;
-  border-top: 1px solid $black;
-  height: 40px;
-  padding-left: 10px;
-  display: flex;
-  align-items: center;
-  transition: .3s;
-  cursor: pointer;
-}
+  > div {
+    box-sizing: border-box;
+    width: 100%;
+    border-top: 1px solid $black;
+    height: 40px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    transition: .3s;
+    cursor: pointer;
+  }
 
-.sortButtonDropMenu > div:first-child {
-  border: none;
-  border-radius: 10px 10px 0 0;
-}
+  > div:first-child {
+    border: none;
+    border-radius: 10px 10px 0 0;
+  }
 
-.sortButtonDropMenu > div:last-child {
-  border-radius: 0 0 10px 10px;
-}
+  > div:last-child {
+    border-radius: 0 0 10px 10px;
+  }
 
-.sortButtonDropMenu > div:hover {
-  background-color: $light-blue;
+  > div:hover {
+    background-color: $light-blue;
+  }
 }
 
 .itemsContainer {
   display: flex;
   flex-direction: column;
-}
 
-.itemsBlockContainer {
-  display: flex;
-  flex-wrap: wrap;
-}
+  > div {
+    display: flex;
+    flex-wrap: wrap;
 
-.itemsBlockContainer > div {
-  width: 23%;
-  margin: 1%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    > div {
+      width: 23%;
+      margin: 1%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-.itemsBlockContainer > div > div {
-  width: 100%;
+      > div {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .paginationContainer {
@@ -163,8 +167,8 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-}
 
-.paginationContainer > nav {
-  width: max-content;
+  > nav {
+    width: max-content;
+  }
 }

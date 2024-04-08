@@ -1,3 +1,48 @@
+@import "../../styles/colors";
+
 .drawerContainer > svg {
   cursor: pointer;
 }
+
+.MuiPaper-root {
+  background-color: $white !important;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $light-gray
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $black;
+  }
+}
+
+.drawer {
+  width: 450px;
+
+  .drawerCross {
+    height: 70px;
+    position: relative;
+    border-bottom: 1px dashed $black;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 25px;
+    font-weight: 700;
+
+    > svg {
+      cursor: pointer;
+      font-size: 20px;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: $black;
+    }
+  }
+}
+
+

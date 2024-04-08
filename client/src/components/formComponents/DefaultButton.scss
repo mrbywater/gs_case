@@ -1,4 +1,4 @@
-@import '../../App';
+@import "../../styles/colors";
 
 .btn-hover {
   position: relative;
@@ -17,32 +17,32 @@
   cursor: pointer;
   transition: all .4s ease-out;
   border-radius: 10px;
-}
 
-.btn-hover:hover {
-  background-color: $sky-blue;
-}
+  &:hover {
+    background-color: $sky-blue;
+  }
 
-.btn-hover::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: $white;
-  opacity: 0.8;
-  transition: all 0.5s ease-out;
-}
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $white;
+    opacity: 0.8;
+    transition: all 0.5s ease-out;
+  }
 
-.btn-hover:hover::before {
-  transform: translate(-50%, -50%) scale(20);
-  opacity: 0;
-}
+  &:hover::before {
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 0;
+  }
 
-.buttonIcon {
-  margin-right: 5px;
-  font-size: 16px;
+  .buttonIcon {
+    margin-right: 5px;
+    font-size: 16px;
+  }
 }

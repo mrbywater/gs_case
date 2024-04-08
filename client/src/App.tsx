@@ -1,5 +1,8 @@
 import React from 'react';
-import './App.scss';
+
+import './styles/style.scss';
+import './styles/fonts.scss'
+
 import {Footer} from "./footer/Footer";
 import {Header} from "./header/Header";
 import {Home} from "./screens/home/Home";

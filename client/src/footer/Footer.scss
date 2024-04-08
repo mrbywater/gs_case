@@ -1,4 +1,4 @@
-@import "../App";
+@import "../styles/colors";
 
 footer {
   height: 40px;
@@ -10,14 +10,14 @@ footer {
   color: $black;
   font-size: 12px;
   box-sizing: border-box;
-  position:relative
-}
+  position:relative;
 
-footer:before {
-  position:absolute;
-  top:0;
-  left: 2.5%;
-  width:95%;
-  border-top: 1px dashed $gray;
-  content:"";
+  &:before {
+    position:absolute;
+    top:0;
+    left: 2.5%;
+    width:95%;
+    border-top: 1px dashed $gray;
+    content:"";
+  }
 }

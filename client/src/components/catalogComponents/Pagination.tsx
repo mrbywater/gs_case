@@ -1,6 +1,5 @@
-import './Pagination.scss'
 import Pagination from '@mui/material/Pagination';
-import {ChangeEvent, useMemo, useState} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 import useScrollToTop from "../../hooks/useScrollToTop";
 const PaginationCatalog = (props : any) => {
 
@@ -18,8 +17,9 @@ const PaginationCatalog = (props : any) => {
     const startIndex : number = (page - 1) * itemsPerPage;
     const endIndex : number = Math.min(startIndex + itemsPerPage, itemsArr.length);
 
-    useMemo(() => {
+    useEffect(() => {
         setItemsArr(itemsArr.slice(startIndex, endIndex))
+        handleButtonClick()
     }, [page])
 
     const handleChange = (event: ChangeEvent<unknown>, value: number) => {
@@ -27,7 +27,12 @@ const PaginationCatalog = (props : any) => {
     };
 
     return (
-        <Pagination count={totalPages} defaultPage={6} page={page} onChange={handleChange} onClick={handleButtonClick}/>
+        <Pagination
+            count={totalPages}
+            defaultPage={6}
+            page={page}
+            onChange={handleChange}
+        />
     )
 }
 export { PaginationCatalog }

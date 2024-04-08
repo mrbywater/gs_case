@@ -472,7 +472,7 @@ const Catalog = () => {
                         ))}
                     </div>
                     <div className='itemsMainContainer'>
-                        <div className='sortContainer'>
+                        <div>
                             <div className='activeFiltersContainer'>
                                 {!!filters.length && (
                                     <div>
@@ -523,7 +523,7 @@ const Catalog = () => {
                             </div>
                         </div>
                         <div className='itemsContainer'>
-                            <div className='itemsBlockContainer'>
+                            <div>
                                 {catalogItemsArr.map((shopItem) => (
                                     <div key={`shopItem_${shopItem.title}`}>
                                         <CatalogItem

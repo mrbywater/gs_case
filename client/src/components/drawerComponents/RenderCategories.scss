@@ -1,0 +1,33 @@
+@import "../../styles/colors";
+
+.drawerSelect {
+  box-sizing: border-box;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 45px;
+  position: relative;
+  user-select: none;
+
+  &:hover {
+    background-color: $light-blue;
+    transition: .3s;
+  }
+
+  > svg {
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: $black;
+  }
+
+  .subCategoryIcon {
+    left: 25px;
+  }
+
+  .openCategoryArrow {
+    right: 15px;
+  }
+}

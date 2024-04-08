@@ -21,12 +21,8 @@ const DefaultInput = (props : any) => {
             className='inputMainContainer'
             style={inputStyle}
         >
-            <FontAwesomeIcon
-                className='icon'
-                icon={icon}
-            />
+            <FontAwesomeIcon icon={icon}/>
             <input
-                className='inputElem'
                 placeholder={placeholder}
                 type={inputType}
                 value={value}

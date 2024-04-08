@@ -2,6 +2,7 @@ import './SideDrawer.scss'
 import {Drawer} from "@mui/material";
 import {useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faXmark} from "@fortawesome/free-solid-svg-icons";
 
 const SideDrawer = (props : any) => {
 
@@ -9,10 +10,11 @@ const SideDrawer = (props : any) => {
         anchor,
         children,
         icon,
-        iconStyle
+        iconStyle,
+        title,
+        setOpen,
+        open
     } = props
-
-    const [open, setOpen] = useState(false);
 
     const toggleDrawer = (newOpen: boolean) => () => {
         setOpen(newOpen);
@@ -30,10 +32,20 @@ const SideDrawer = (props : any) => {
                 open={open}
                 onClose={toggleDrawer(false)}
             >
-                {children}
+                <div className='drawer'>
+                    <div className='drawerCross'>
+                        <span>
+                            {title}
+                        </span>
+                        <FontAwesomeIcon
+                            icon={faXmark}
+                            onClick={toggleDrawer(false)}
+                        />
+                    </div>
+                    {children}
+                </div>
             </Drawer>
         </div>
-
     )
 }
 export { SideDrawer }

@@ -25,6 +25,8 @@ const searchInputStyle = {
 const Header = () => {
 
     const [searchValue, setSearchValue] = useState('')
+    const [openCatalog, setOpenCatalog] = useState(false);
+    const [openCart, setOpenCart] = useState(false);
 
     return (
         <header>
@@ -33,6 +35,9 @@ const Header = () => {
                     anchor={'left'}
                     icon={faBarsStaggered}
                     iconStyle={{fontSize: '30px'}}
+                    title='Catalog'
+                    setOpen={setOpenCatalog}
+                    open={openCatalog}
                 >
                     <DrawerCatalogList/>
                 </SideDrawer>
@@ -41,13 +46,12 @@ const Header = () => {
                 </Link>
             </div>
             <div className='search'>
-                <Link to={'/catalog'} style={{marginRight: '20px', textDecoration: 'none'}}>
-                    <DefaultButton
-                        text='Catalog'
-                        icon={faGrip}
-                        // buttonStyle={{marginRight: '20px'}}
-                    />
-                </Link>
+                <DefaultButton
+                    text='Catalog'
+                    icon={faGrip}
+                    onClickFunc={()=> setOpenCatalog(true)}
+                    buttonStyle={{marginRight: '20px'}}
+                />
                 <DefaultInput
                     placeholder='Search'
                     inputStyle={searchInputStyle}
@@ -64,6 +68,9 @@ const Header = () => {
                 <SideDrawer
                     anchor={'right'}
                     icon={faCartShopping}
+                    title='Cart'
+                    setOpen={setOpenCart}
+                    open={openCart}
                 >
                     <DrawerCartShoppingList/>
                 </SideDrawer>
