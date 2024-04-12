@@ -1,6 +1,6 @@
 import './Catalog.scss'
 import {CatalogItem} from "../../components/catalogComponents/CatalogItem";
-import {faCaretDown, faRightLeft, faXmark} from "@fortawesome/free-solid-svg-icons";
+import {faCaretDown, faRightLeft} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useEffect, useRef, useState} from "react";
 import {FilterComponent} from "../../components/catalogComponents/FilterComponent";
@@ -13,7 +13,7 @@ import {PaginationCatalog} from "../../components/catalogComponents/Pagination";
 const test = [
     {
         price: '32532',
-        title: 'fewgwtewggwe'
+        title: 'fewgwtewggwe fe54w8gre e8477wwgwe fe54w8gre e8477wwgwe fe54w8gre e8477wwgwe fe54w8gre e8477wwgwe fe54w8gre e8477wwgwe fe54w8gre e8477wwgwe fe54w8gre e8477wwgwe'
     },
     {
         price: '32532',

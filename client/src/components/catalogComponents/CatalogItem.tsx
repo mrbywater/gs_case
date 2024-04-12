@@ -24,7 +24,7 @@ const CatalogItem = (props : any) => {
                 </div>
                 <div className='priceContainer'>
                     <div className='price'>
-                        <FontAwesomeIcon icon={faGuaraniSign} />
+                        <span>₴</span>
                         <span> {price}</span>
                     </div>
                     <DefaultButton
